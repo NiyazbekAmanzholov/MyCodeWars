@@ -1,12 +1,34 @@
 package kyu8.task7_;
 
 //"the-stealth-warrior" преобразуется в "theStealthWarrior"
-//        "The_Stealth_Warrior"преобразуется в "TheStealthWarrior"
+//"The_Stealth_Warrior"преобразуется в "TheStealthWarrior"
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 class Solution{
 
   public static void main(String[] args) {
-    System.out.println(toCamelCase("the_Stealth_Warrior"));
+
+    int[] arr = {3,1,5,2,9};
+    boolean boo = false;
+
+    int temp;
+    for (int i = 0; i < arr.length-1; i++) {
+      for (int j = 1; j < arr.length; j++) {
+        boo = true;
+        if (arr[i] > arr[j]) {
+          temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+          boo  = false;
+        }
+      }
+    }
+
+    System.out.println(Arrays.toString(arr));
+
+    //System.out.println(toCamelCase("the_Stealth_Warrior"));
   }
 
   static String toCamelCase(String s){
@@ -56,4 +78,6 @@ class Solution{
     return res;
   }
 }
+
+
 

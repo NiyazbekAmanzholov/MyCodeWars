@@ -7,9 +7,9 @@ package kyu8.task9;
 //		assertArrayEquals(new int[] { 2, 4, 6, 8 }, Kata.mergeArrays(new int[] { 2, 4, 8 }, new int[] { 2, 4, 6 }));
 //		}
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Kata {
 	public static void main(String[] args) {
@@ -28,5 +28,20 @@ public class Kata {
 		}
 
 		return res.stream().sorted().distinct().mapToInt(a->Integer.parseInt(String.valueOf(a))).toArray();
+	}
+}
+
+class Kata2 {
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(mergeArrays(new int[]{2, 4, 8}, new int[]{2, 4, 6})));
+	}
+
+	public static int[] mergeArrays(int[] first, int[] second) {
+
+		String arrString = Arrays.toString(first) + Arrays.toString(second);
+		String res = arrString.replace("[", "").replace("]", "")
+						.replace(",", "").replace(" ", "");
+
+		return Arrays.stream(res.split("")).mapToInt(Integer::parseInt).distinct().sorted().toArray();
 	}
 }

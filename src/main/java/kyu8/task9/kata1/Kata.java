@@ -1,6 +1,7 @@
 package kyu8.task9.kata1;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 import static java.util.stream.IntStream.*;
 
@@ -11,6 +12,6 @@ public class Kata {
   }
 
   public static int[] mergeArrays(int[] first, int[] second) {
-    return concat(of(first), of(second)).sorted().distinct().toArray();
+    return IntStream.concat(of(first), of(second)).sorted().distinct().toArray();
   }
 }

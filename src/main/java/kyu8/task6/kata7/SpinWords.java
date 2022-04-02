@@ -3,7 +3,6 @@ package kyu8.task6.kata7;
 public class SpinWords {
 
   public String spinWords(String sentence) {
-    //TODO: Code stuff here
     StringBuilder sb = new StringBuilder();
     String[] strs = sentence.split(" ");
     for(int i = 0;i<strs.length;i++){

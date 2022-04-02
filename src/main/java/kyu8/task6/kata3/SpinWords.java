@@ -6,10 +6,7 @@ public class SpinWords {
 
        for (String a : sentence.split(" "))
        {
-           if (a.length() > 4)
-           {
-              sentence = sentence.replace(a, new  StringBuffer(a).reverse());
-           }
+           if (a.length() > 4) sentence = sentence.replace(a, new  StringBuffer(a).reverse());
        }
        return sentence;
   }

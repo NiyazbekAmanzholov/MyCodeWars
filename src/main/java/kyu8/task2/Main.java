@@ -8,34 +8,23 @@ package kyu8.task2;
 //        Вход: 145263выход: 654321
 //        Вход: 123456789выход: 987654321
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int a = 42145;
-        System.out.println(DescendingOrder.sortDesc(a));
+        System.out.println(DescendingOrder.sortDesc(42145));
     }
 }
 
 class DescendingOrder {
     public static int sortDesc(final int num) {
-        String stringNum = Integer.toString(num);
-        char[] chars = stringNum.toCharArray();
+        String str = "" + num;
+        String[] strr = str.split("");
+        int[] arr = Arrays.stream(strr).mapToInt(Integer::parseInt).sorted().toArray();
 
-        List<Character> characters = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) stringBuilder.append(arr[i]);
 
-        for (int i = 0; i < chars.length; i++) {
-            characters.add(chars[i]);
-        }
-
-        int[] array = characters.stream().mapToInt(ch -> Integer.parseInt(String.valueOf(ch))).sorted().toArray();
-
-        StringBuilder total = new StringBuilder();
-        for (int j : array) {
-            total.append(j);
-        }
-
-        return Integer.parseInt(total.toString());
+        return Integer.parseInt(stringBuilder.reverse().toString());
     }
 }

@@ -8,6 +8,9 @@ package kyu8.task8;
 //        Maskify.Maskify("Skippy");                                   // should return "##ippy"
 //        Maskify.Maskify("Nananananananananananananananana Batman!"); // should return "####################################man!"
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class Maskify {
 
     public static void main(String[] args) {
@@ -32,5 +35,17 @@ public class Maskify {
             }
 
         return res;
+    }
+}
+
+class Maskify2 {
+    public static void main(String[] args) {
+        System.out.println(Maskify2.maskify("64607935616"));
+    }
+
+    public static String maskify(String str) {
+        char[] strChars = str.toCharArray();
+        for( int i = 0; i < strChars.length - 4; i++ ) strChars[i] = '#';
+        return new String(strChars);
     }
 }

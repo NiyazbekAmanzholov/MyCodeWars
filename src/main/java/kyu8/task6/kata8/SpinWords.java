@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class SpinWords {
 
+  public static void main(String[] args) {
+    SpinWords spinWords = new SpinWords();
+    System.out.println(spinWords.spinWords("Hey wollef sroirraw"));
+  }
+
   public String spinWords(String sentence) {
     return Arrays.stream(sentence.split(" "))
                 .map(s -> s.length() >= 5 ? new StringBuilder(s).reverse().toString() : s)
